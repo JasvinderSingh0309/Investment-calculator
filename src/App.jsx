@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./components/Input";
 import Result from "./components/Result";
+import {calculateInvestmentResults, formatter} from "./util/investment";
 import { useState } from "react";
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
     "expected return": 6,
     "duration": 10,
   });
+
+  let calculateObj = {...values}
+  let result = calculateInvestmentResults(calculateObj);
+  console.log(result);
 
   function handleValueChange(field, newValue) {
     setValues(preValues => {
