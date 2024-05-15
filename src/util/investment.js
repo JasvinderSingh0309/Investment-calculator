@@ -5,6 +5,7 @@
 // - expectedReturn: The expected (annual) rate of return
 // - duration: The investment duration (time frame)
 export function calculateInvestmentResults(obj) {
+  console.log(obj);
   const annualData = [];
   let investmentValue = obj["initial investment"];
 

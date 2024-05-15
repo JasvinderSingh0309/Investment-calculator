@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./components/Input";
 import Result from "./components/Result";
-import {calculateInvestmentResults, formatter} from "./util/investment";
+import { calculateInvestmentResults } from "./util/investment";
 import { useState } from "react";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     setValues(preValues => {
       return {
         ...preValues,
-        [field]:newValue,
+        [field]:Number(newValue),
       }
     })
   }
@@ -51,7 +51,7 @@ function App() {
             <th>Invested Capital</th>
           </tr>
         </thead>
-        <Result resultArray={[1,2,3,4,5]} />
+        <Result resultArray={result} />
       </table>
     </>
   )
