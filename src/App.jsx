@@ -12,9 +12,10 @@ function App() {
     "duration": 10,
   });
 
+  let isValidDuration = values.duration > 0;
+
   let calculateObj = {...values}
   let result = calculateInvestmentResults(calculateObj);
-  console.log(result);
 
   function handleValueChange(field, newValue) {
     setValues(preValues => {
@@ -41,18 +42,20 @@ function App() {
             onValueChange={handleValueChange} />
         </div>
       </div>
-      <table id="result">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Investment Value</th>
-            <th>Interest (Year)</th>
-            <th>Total Interest</th>
-            <th>Invested Capital</th>
-          </tr>
-        </thead>
-        <Result resultArray={result} />
-      </table>
+      {!isValidDuration? <p className="center">Please enter positive duration!!</p> : 
+        <table id="result">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Investment Value</th>
+              <th>Interest (Year)</th>
+              <th>Total Interest</th>
+              <th>Invested Capital</th>
+            </tr>
+          </thead>
+          <Result resultArray={result} />
+        </table>
+      }
     </>
   )
 }
